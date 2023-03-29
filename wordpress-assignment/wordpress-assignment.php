@@ -104,7 +104,6 @@ class My_Featured_Post {
     
 }
 
-
 $my_featured_post = new My_Featured_Post();
 
 function new_post_type_() {
@@ -218,7 +217,5 @@ function new_post_type_() {
     add_action( 'add_meta_boxes', 'add_featured_meta_box' );
     add_action( 'save_post', 'save_featured_meta_box' );
     add_action( 'pre_get_posts', 'namespace_add_custom_types' );
-    
-    
     
   ?>

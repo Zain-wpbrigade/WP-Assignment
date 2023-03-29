@@ -1,4 +1,5 @@
 <?php
+
 // Get header file
 get_header();
 
@@ -124,28 +125,6 @@ get_footer();
 .post-content {
   font-size: 16px;
   line-height: 1.5;
-}
-
-#searchform {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-#s {
-  padding: 5px;
-  width: 70%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-button[type="submit"] {
-  padding: 5px 10px;
-  background-color: #0073aa;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
 }
 
 /* Media queries for responsive design */

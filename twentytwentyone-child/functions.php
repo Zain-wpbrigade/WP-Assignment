@@ -9,13 +9,16 @@
  *
  * @package WordPress
  * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @since Twenty Twenty-One Child 1.0
  */
 
 // Enqueue parent theme styles
 function twenty_twenty_one_child_enqueue_styles() {
+
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+
 }
+
 add_action( 'wp_enqueue_scripts', 'twenty_twenty_one_child_enqueue_styles' );
 
 ?>

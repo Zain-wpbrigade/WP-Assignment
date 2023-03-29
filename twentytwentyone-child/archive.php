@@ -1,22 +1,27 @@
 <?php
+
+/*
+Template Name: TwentyTwenty-one child Archives
+*/
+
 get_header();
 
-// Set up variables for featured and non-featured posts
-$featured_posts = array();
-$non_featured_posts = array();
+    // Set up variables for featured and non-featured posts
+    $featured_posts = array();
+    $non_featured_posts = array();
 
-if ( have_posts() ) :
-    while ( have_posts() ) :
-        the_post();
+    if ( have_posts() ) :
+        while ( have_posts() ) :
+            the_post();
         
-        // Check if post is featured or not
-        if ( get_post_meta( get_the_ID(), 'featured_case_study', true ) == '1' ) {
-            $featured_posts[] = get_the_ID();
-        } else {
-            $non_featured_posts[] = get_the_ID();
-        }
+            // Check if post is featured or not
+            if ( get_post_meta( get_the_ID(), 'featured_case_study', true ) === '1' ) {
+                $featured_posts[] = get_the_ID();
+            } else {
+                $non_featured_posts[] = get_the_ID();
+            }
 
-    endwhile;
+        endwhile;
 
     // Display featured posts section
     if ( ! empty( $featured_posts ) ) : ?>
@@ -25,17 +30,19 @@ if ( have_posts() ) :
             <h2>Featured Case Studies</h2>
 
             <?php foreach ( $featured_posts as $post_id ) : ?>
+
                 <?php $post = get_post( $post_id ); setup_postdata( $post ); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <?php if ( has_post_thumbnail() ) : ?>
+                    <?php if ( has_post_thumbnail() ) : ?>
                         <div class="entry-thumbnail">
                             <?php the_post_thumbnail( 'large' ); ?>
                         </div>
+            
                     <?php endif; ?>
+
                     <header class="entry-header">
                         <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                     </header>
-
                     <div class="entry-content">
                         <?php the_excerpt(); ?>
                     </div>
@@ -48,6 +55,7 @@ if ( have_posts() ) :
 
     // Display search bar
     ?>
+    
     <section id="search-bar">
         <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
             <input type="text" name="s" id="s" placeholder="Search Case Studies">
@@ -55,7 +63,6 @@ if ( have_posts() ) :
         </form>
     </section>
     
-
     <?php
 
     // Display non-featured posts section
@@ -89,7 +96,6 @@ endif;
 
 get_footer();
 ?>
-
 
 <style>
     /* CSS for featured posts */
